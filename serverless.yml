@@ -16,6 +16,13 @@ service: serverless-framework-aws-test # NOTE: update this with your service nam
 # my custom section :¬)
 custom:
   tableName: 'users-table-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate: true
+
+plugins:
+  - serverless-offline
+  - serverless-dynamodb-local
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
